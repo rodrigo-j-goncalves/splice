@@ -1,0 +1,94 @@
+---
+title: "quarto _splice_"
+author: "Rodrigo J. Gonçalves"
+
+format:
+  revealjs
+
+embed-resources: true # This is not mandatory 
+
+---
+
+## tl;dr [quarto _splice_](https://github.com/rodrigo-j-goncalves/splice)
+
+Just use it like this:
+
+````markdown
+## Slide on the main presentation
+
+Some content
+
+{{{< splice "secondary-presentation.html" >}}}
+
+More content
+````
+. . .
+
+- Advance through all the slides, without changing anything, without clicking anywhere, whithout worrying about the focus.
+
+. . .
+
+- When the secondary presentation ends, the primary presentation continues.
+
+
+## What is [quarto splice](https://github.com/rodrigo-j-goncalves/splice)
+
+- You have a `quarto revealjs` presentation, and would like to show an external presentation inside your primary presentation.
+- But you don't want to click around to go back and forth with the focus...
+
+[quarto splice](https://github.com/rodrigo-j-goncalves/splice) allows you to include and **play seamlessly** external presentations inside your main presentation.
+
+## Motivation
+
+- I wanted to include [manim-slides](https://manim-slides.eertmans.be/latest/) animations in my quarto revealjs lectures
+- But to run the animations I had to activate them first, breaking my workflow
+- With [quarto splice](https://github.com/rodrigo-j-goncalves/splice) you can splice several presentations into a single flow of slides.
+- You can use it with manim-slides or other HTML-based presentations (revealjs).
+
+## Example 1: a `manim-slides` animation
+
+A spacecraft animation exported from `manim-slides` as a single HTML file.
+
+Keep pressing `→`  (no clicks needed, no focus issues).
+
+{{< splice "splice-these/nave.html" >}}
+
+## Your lecture continues here
+
+After the animation ends, the primary presentation resumes automatically.
+
+Add as many intermediate slides as you need between animations.
+
+## Example 2: another `manim-slides` animation
+
+A different animation — same workflow, zero extra configuration.
+
+{{< splice "splice-these/mariposa.html" >}}
+
+## Example 3: a full `quarto revealjs` presentation
+
+[quarto splice](https://github.com/rodrigo-j-goncalves/splice) works with any Reveal.js HTML, not just manim-slides.
+
+Here a complete Quarto revealjs talk is spliced in as a secondary.
+
+{{< splice "splice-these/lecture_secondary.html" >}}
+
+## Conclusion
+
+Nice [manim](https://www.manim.community/) animations in your quarto revealjs presentation.
+
+Or another HTML/revealjs presentation you want to include.
+
+. . .
+
+\
+
+And all you had to do is **keep advancing slides as usual.**
+
+. . .
+
+\
+
+Now go prepare **reusable presentations** 
+
+and **chain them** as you wish with [quarto splice](https://github.com/rodrigo-j-goncalves/splice)

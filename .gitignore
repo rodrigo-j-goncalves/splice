@@ -1,0 +1,14 @@
+# Ignore everything by default
+*
+
+# Allow the extension
+!_extensions/
+!_extensions/**
+
+# Allow repo files
+!.gitignore
+!README.md
+!LICENSE
+!example.qmd
+!splice-these/
+!splice-these/**
