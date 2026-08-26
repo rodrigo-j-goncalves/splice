@@ -1,0 +1,12 @@
+{
+  "Splice secondary presentation": {
+    "prefix": "splice",
+    "body": ["{{< splice \"$1\" >}}"],
+    "description": "Embed a secondary Reveal.js presentation in the current slide."
+  },
+  "Splice with options": {
+    "prefix": "splice-opts",
+    "body": ["{{< splice \"$1\" width=\"$2\" height=\"$3\" >}}"],
+    "description": "Embed a secondary Reveal.js presentation with custom width and height."
+  }
+}

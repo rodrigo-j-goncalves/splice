@@ -1,0 +1,44 @@
+$schema: https://m.canouil.dev/quarto-wizard/assets/schema/v2/extension-schema.json
+
+shortcodes:
+  splice:
+    description: >
+      Embed a secondary Reveal.js presentation (e.g. a manim-slides HTML export
+      or another Quarto revealjs talk) inside the current slide.
+      Arrow-key navigation flows seamlessly through both presentations.
+    arguments:
+      - title: File
+        description: >
+          Path to the secondary HTML presentation file, relative to the
+          primary document.
+        type: string
+        required: true
+        completion:
+          type: file
+          extensions:
+            - html
+    attributes:
+      width:
+        title: Width
+        description: CSS width of the iframe (e.g. "100%" or "800px").
+        type: string
+        default: "100%"
+        completion:
+          type: freeform
+          placeholder: "100%"
+      height:
+        title: Height
+        description: >
+          Initial height of the iframe in pixels. Automatically reduced when
+          text precedes the iframe on the same slide.
+        type: string
+        default: "600"
+        completion:
+          type: freeform
+          placeholder: "600"
+      id:
+        title: ID
+        description: >
+          HTML id attribute for the iframe. Auto-generated if omitted
+          (splice-secondary-1, splice-secondary-2, …).
+        type: string
