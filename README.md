@@ -3,25 +3,12 @@
 A Quarto extension to chain presentations into a single flow of slides.
 
 **Primary use case:** integrate [manim-slides](https://github.com/jeertmans/manim-slides)
-HTML exports — or any other Reveal.js presentation — into a Quarto class,
-navigated as a single linear sequence with `←` / `→`.
+(as HTML) — or any other Reveal.js presentation — into a your Quarto Revealjs presentation.
 
-The secondary presentations require **zero modification**.
+Then navigate all the slides in a single linear sequence, just advancing the slides with the usual keys.
 
----
-
-## How it looks
-
-```
-→  your slide (text, equations…)
-→  animation frame 1        ┐
-→  animation frame 2        │  secondary Reveal.js HTML (unmodified)
-→  animation frame 3        ┘
-→  next slide (text…)
-→  …
-```
-
-The audience navigates with arrow keys only. The iframes are invisible as such.
+- The included presentations require **zero modification**.
+- No click around to transfer focus from one presentation to the other.
 
 ---
 
@@ -39,10 +26,8 @@ Place the shortcode on the slide where the secondary should appear:
 
 ```markdown
 ---
-title: "My Class"
-format:
-  revealjs:
-    theme: white
+title: "My Lecture"
+format: revealjs
 ---
 
 # Topic 1
@@ -55,9 +40,6 @@ Some text…
 
 {{< splice "animation2.html" >}}
 ```
-
-No extra YAML keys needed (`keyboard`, `include-in-header`, `filters` — all handled
-by the extension).
 
 ### Shortcode parameters
 
@@ -93,9 +75,6 @@ Any Reveal.js presentation works as a secondary without modification:
 - Quarto revealjs presentations
 - Any standard Reveal.js HTML file
 
-The controller connects to `iframe.contentWindow.Reveal` directly via same-origin
-DOM access after the iframe loads. No postMessage scripts are required in the secondary.
-
 ---
 
 ## Local testing
@@ -113,8 +92,8 @@ python3 -m http.server 8765
 Upload to the same directory on your server:
 
 ```
-my-class.html
-my-class_files/
+my-lecture.html
+my-lecture_files/
 animation1.html
 animation2.html
 ```
@@ -125,13 +104,16 @@ animation2.html
 
 See [`example.qmd`](example.qmd) and the example secondaries in [`splice-these/`](splice-these/).
 
+Rendered here: [splice-example](https://rodrigo-j-goncalves.github.io/quarto-extensions/splice/splice-example.html)
+
 ---
 
 ## Known limitations
 
 - Vertical slides in secondaries are not tracked (keep secondaries flat)
-- Secondary state is preserved when navigating back (not reset to first slide)
-- Same-origin only — cross-origin secondaries are not supported
+- You will discover more.
+
+For now it works for me (my purpose is to use manim-slides in my classes without worrying about the focus), but I'm sure I made mistakes and it can be improved. Just let me know and we'll try to improve it step by step 🐢
 
 ---
 
