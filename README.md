@@ -117,6 +117,8 @@ For now it works for me (my purpose is to use manim-slides in my classes without
 
 ---
 
-## License
+## License & credits
+
+I _claudeveloped_ this extension.
 
 MIT © Rodrigo J. Gonçalves
