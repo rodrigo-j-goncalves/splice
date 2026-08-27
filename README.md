@@ -1,4 +1,4 @@
-# quarto-splice
+# splice
 
 A Quarto extension to chain presentations into a single flow of slides.
 
