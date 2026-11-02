@@ -34,7 +34,7 @@ local function splice(args, kwargs, meta)
   local html = string.format(
     '<iframe id="%s" class="splice-secondary" data-splice-src="%s" ' ..
     'width="%s" height="%s" ' ..
-    'style="border: 1px solid black; pointer-events: none;"></iframe>',
+    'style="pointer-events: none;"></iframe>',
     id, src, width, height)
 
   return pandoc.RawBlock("html", html)
