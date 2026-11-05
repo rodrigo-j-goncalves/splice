@@ -128,6 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener("keydown", function (event) {
 
+    console.log("KEY PRESSED:", event.key, "| code:", event.code);
+
     // pip-aware navigation (same behavior as → / ←)
     const isRight = event.key === "ArrowRight" || event.key === "n" || event.key === "N"
                  || event.key === "PageDown"
