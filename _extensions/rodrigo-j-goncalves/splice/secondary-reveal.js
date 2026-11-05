@@ -227,4 +227,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   }, true);
 
+  document.addEventListener("click", function (event) {
+    console.log("CLICK:", "button:", event.button, "| x:", event.clientX, "y:", event.clientY, "| target:", event.target.tagName);
+  });
+
 });
