@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (available > 50) iframe.style.height = available + "px";
   }
 
-  // Disable Reveal's built-in keyboard handling — our capture-phase
-  // listener takes over arrow key navigation completely.
-  Reveal.configure({ keyboard: false });
+  // Note: Reveal.js keyboard handling remains enabled.
+  // We intercept only navigation keys (arrows, space, pageup/pagedown) in capture phase
+  // to control secondaries. Other shortcuts (F, S, B, etc.) pass through to Reveal.
 
 
   // ─────────────────────────────────────────────
@@ -128,8 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener("keydown", function (event) {
 
-    console.log("KEY PRESSED:", event.key, "| code:", event.code);
-
     // pip-aware navigation (same behavior as → / ←)
     const isRight = event.key === "ArrowRight" || event.key === "n" || event.key === "N"
                  || event.key === "PageDown"
@@ -226,9 +224,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
   }, true);
-
-  document.addEventListener("click", function (event) {
-    console.log("CLICK:", "button:", event.button, "| x:", event.clientX, "y:", event.clientY, "| target:", event.target.tagName);
-  });
 
 });
