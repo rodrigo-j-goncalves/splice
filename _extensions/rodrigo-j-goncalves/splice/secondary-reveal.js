@@ -130,8 +130,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // pip-aware navigation (same behavior as → / ←)
     const isRight = event.key === "ArrowRight" || event.key === "n" || event.key === "N"
+                 || event.key === "PageDown"
                  || (event.key === " " && !event.shiftKey);
     const isLeft  = event.key === "ArrowLeft"  || event.key === "p" || event.key === "P"
+                 || event.key === "PageUp"
                  || (event.key === " " && event.shiftKey);
 
     // Reveal.js core shortcuts restored (PRIMARY only, no pip involvement)
